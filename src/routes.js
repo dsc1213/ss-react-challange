@@ -1,15 +1,18 @@
 import * as React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Transactions from "./features/transactions/transactions";
+import TransactionDetails from "./features/transactions/transaction-detail";
+const history = createBrowserHistory();
 
 const PageRoutes = () => {
   return (
-    <div className="App">
-      <h1>Welcome to React Router!</h1>
+    <Router history={history}>
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="about" element={<div>About</div>} />
+        <Route path="/" element={<Transactions />} />
+        <Route path="/details" element={<TransactionDetails />} />
       </Routes>
-    </div>
+    </Router>
   );
 };
 
